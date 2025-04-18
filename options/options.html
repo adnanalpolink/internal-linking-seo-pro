@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internal Linking SEO Pro - Settings</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #202124;
+      background-color: #f8f9fa;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .header {
+      background-color: #4285f4;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    
+    .card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .card-title {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 15px;
+      color: #202124;
+      border-bottom: 1px solid #e8eaed;
+      padding-bottom: 10px;
+    }
+    
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+    
+    input[type="text"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    
+    .domain-list {
+      margin-top: 15px;
+    }
+    
+    .domain-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px;
+      background-color: #f8f9fa;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+    
+    .domain-item button {
+      background-color: #ea4335;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    button {
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.2s;
+    }
+    
+    button:hover {
+      background-color: #3367d6;
+    }
+    
+    button.secondary {
+      background-color: #f8f9fa;
+      color: #4285f4;
+      border: 1px solid #4285f4;
+    }
+    
+    button.secondary:hover {
+      background-color: #e8eaed;
+    }
+    
+    .status {
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 4px;
+      text-align: center;
+    }
+    
+    .status.success {
+      background-color: #e6f4ea;
+      color: #137333;
+    }
+    
+    .status.error {
+      background-color: #fce8e6;
+      color: #c5221f;
+    }
+    
+    .pillar-pages {
+      margin-top: 15px;
+    }
+    
+    .pillar-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px;
+      background-color: #f8f9fa;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+    
+    .pillar-item .url {
+      flex-grow: 1;
+      margin-right: 10px;
+    }
+    
+    .pillar-item .topic {
+      color: #4285f4;
+      font-weight: 500;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Internal Linking SEO Pro - Settings</h1>
+  </div>
+  
+  <div class="container">
+    <div class="card">
+      <div class="card-title">Domain Settings</div>
+      <div class="form-group">
+        <label for="domainInput">Add Domain</label>
+        <div style="display: flex; gap: 10px;">
+          <input type="text" id="domainInput" placeholder="example.com">
+          <button id="addDomainBtn">Add</button>
+        </div>
+      </div>
+      
+      <div class="domain-list" id="domainList">
+        <!-- Domain items will be added here dynamically -->
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Crawl Settings</div>
+      <div class="form-group">
+        <label for="crawlFrequency">Crawl Frequency</label>
+        <select id="crawlFrequency">
+          <option value="daily">Daily</option>
+          <option value="weekly" selected>Weekly</option>
+          <option value="monthly">Monthly</option>
+          <option value="manual">Manual Only</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="crawlDepth">Crawl Depth (pages)</label>
+        <input type="number" id="crawlDepth" min="1" max="10" value="3">
+      </div>
+      
+      <div class="form-group">
+        <label for="minInternalLinks">Minimum Internal Links</label>
+        <input type="number" id="minInternalLinks" min="1" max="10" value="3">
+        <small style="display: block; margin-top: 5px; color: #5f6368;">
+          Pages with fewer internal links will be flagged as orphaned content.
+        </small>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Topic Cluster Settings</div>
+      <div class="form-group">
+        <label for="pillarUrlInput">Add Pillar Page</label>
+        <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+          <input type="text" id="pillarUrlInput" placeholder="https://example.com/pillar-page">
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <input type="text" id="pillarTopicInput" placeholder="Main Topic">
+          <button id="addPillarBtn">Add</button>
+        </div>
+      </div>
+      
+      <div class="pillar-pages" id="pillarPagesList">
+        <!-- Pillar page items will be added here dynamically -->
+      </div>
+    </div>
+    
+    <div id="statusMessage" class="status" style="display: none;"></div>
+    
+    <div class="actions">
+      <button class="secondary" id="resetBtn">Reset to Defaults</button>
+      <button id="saveBtn">Save Settings</button>
+    </div>
+  </div>
+  
+  <script src="options.js"></script>
+</body>
+</html>
